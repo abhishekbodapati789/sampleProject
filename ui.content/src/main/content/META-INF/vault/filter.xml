@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/DailyTasks" mode="merge"/>
+    <filter root="/content/DailyTasks" mode="merge"/>
+    <filter root="/content/dam/DailyTasks" mode="merge"/>
+    <filter root="/content/experience-fragments/DailyTasks" mode="merge"/>
+</workspaceFilter>

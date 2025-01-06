@@ -1,0 +1,15 @@
+<div data-sly-use.datepicker="com.DailyTasks.core.models.Task6">
+
+
+    <div data-sly-test="${!datepicker.isExpired}">
+        <p>Text Field: ${datepicker.textField}</p>
+        <p>Path Field: ${datepicker.pathField}</p>
+        <p>Selected Date: ${datepicker.selectedDate}</p>
+    </div>
+
+
+   <div data-sly-test="${datepicker.isExpired}">
+        <p>Component Expired</p>
+    </div>
+
+</div>

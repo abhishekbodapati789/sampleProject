@@ -1,0 +1,23 @@
+<div data-sly-use.obj="com.DailyTasks.core.models.Task1">
+    <!-- Text Field -->
+    <p>Enter plain text: ${obj.textfield}</p>
+
+    <!-- File Upload -->
+    <p>Selected Image Path: ${obj.fileupload}</p>
+    <img 
+        data-sly-test="${obj.fileupload}" 
+        src="${obj.fileupload @ context='uri'}" 
+        alt="Selected Image" 
+        style="max-width: 300px;"/>
+
+    <!-- Checkbox -->
+    <p>Tick Me?: ${obj.checkbox ? 'Student' : 'Not a student'}</p>
+
+    <!-- Dropdown -->
+    <p>Select your option: ${obj.dropdown}</p>
+
+    <!-- Nested Multifield -->
+    <div data-sly-list="${obj.nestedFieldData}">
+        <p>Rich text editor content: ${item.richtext @ context='html'}</p>
+    </div>
+</div>

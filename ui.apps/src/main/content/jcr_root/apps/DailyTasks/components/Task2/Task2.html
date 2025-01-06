@@ -1,0 +1,18 @@
+<div data-sly-use.obj2="com.DailyTasks.core.models.Task2">
+
+    <p>Enter plain text: ${obj2.textfield}</p>
+
+    <div data-sly-list="${obj2.multiFieldData}">
+        <div>
+            <p>Enter additional text: ${item.plaintext}</p>
+            <p>Selected Path: ${item.fileupload}</p>
+            <p>Checkbox :  ${obj.checkbox ? 'student' : 'not a student'}</p>
+            <p>DropDown: ${item.dropdown}</p>
+        </div>
+     <div data-sly-list="${obj2.nestedFieldData}">
+     <p>rich text editor: ${item.richtext  @ context='html'}</p>
+     </div>
+
+    </div>
+
+</div>
