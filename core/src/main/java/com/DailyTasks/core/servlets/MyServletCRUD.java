@@ -43,7 +43,7 @@ public class MyServletCRUD extends SlingAllMethodsServlet {
         try {
             // Get the resource resolver
             Map<String, Object> param = new HashMap<>();
-            param.put(ResourceResolverFactory.SUBSERVICE, "crud");
+            param.put(ResourceResolverFactory.SUBSERVICE, "abhi");
             resourceResolver = resolverFactory.getServiceResourceResolver(param);
 
             // Get the resource at the specified path
@@ -128,6 +128,7 @@ public class MyServletCRUD extends SlingAllMethodsServlet {
                     response.setCharacterEncoding("UTF-8");
                     response.getWriter().write(jsonResponse.toString());
                 } else {
+
                     JsonObject jsonResponse = new JsonObject();
                     jsonResponse.addProperty("status", "error");
                     jsonResponse.addProperty("message", "Node not found.");
@@ -136,7 +137,8 @@ public class MyServletCRUD extends SlingAllMethodsServlet {
                     response.getWriter().write(jsonResponse.toString());
                 }
             } else {
-                // Handle create/update
+
+                
                 String param1 = request.getParameter("param1");
                 String param2 = request.getParameter("param2");
                 String param3 = request.getParameter("param3");

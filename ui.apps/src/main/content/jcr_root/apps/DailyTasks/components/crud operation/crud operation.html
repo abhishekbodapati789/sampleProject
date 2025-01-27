@@ -4,37 +4,29 @@
     <meta charset="UTF-8">
     <title>AJAX to AEM Servlet</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<style>
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    th, td {
-        border: 3px solid white; /* White border for both headers and cells */
-        padding: 8px;
-        text-align: left;
-    }
-    th {
-        background-color: rgb(237, 229, 154);
-        color: red; /* Red text for headers */
-        font-weight: bold;
-    }
-    td {
-        background-color: #301934; /* Slightly darker purple for cells */
-        color: white; /* White text for data */
-    }
-    .edit {
-        color: rgb(117, 175, 247); /* Blue text for edit actions */
-        cursor: pointer;
-        text-decoration: underline;
-    }
-    .delete {
-        color: red; /* Red text for delete actions */
-        cursor: pointer;
-        text-decoration: underline;
-    }
-</style>
-
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid rgb(38, 35, 241);
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: rgb(227, 213, 213);
+            color: rgb(241, 109, 109);
+        }
+        td {
+            background-color: rgb(156, 222, 58);
+            color: rgb(27, 11, 11);
+        }
+        .edit, .delete {
+            color: rgb(60, 200, 232);
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <form id="myForm">
@@ -172,26 +164,27 @@
         }
 
         function deleteRow(index) {
-            const componentPath = $(".your-component").attr("data-path");
+    const componentPath = $(".your-component").attr("data-path");
 
-            $.ajax({
-                url: '/bin/myServlet',
-                type: 'POST',
-                data: {
-                    rowIndex: index,
-                    delete: 'true',
-                    componentPath: componentPath
-                },
-                success: function(response) {
-                    console.log('Response from DELETE:', response);
-                    alert('Row deleted successfully');
-                    fetchTableData();
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error: ' + error);
-                }
-            });
+    $.ajax({
+        url: '/bin/myServlet',
+        type: 'POST',
+        data: {
+            rowIndex: index,
+            delete: 'true',
+            componentPath: componentPath
+        },
+        success: function(response) {
+            console.log('Response from DELETE:', response);
+            alert('Row deleted successfully');
+            fetchTableData();
+        },
+        error: function(xhr, status, error) {
+            console.error('Error: ' + error);
         }
+    });
+}
+
 
         function clearForm() {
             $("#rowIndex").val('');

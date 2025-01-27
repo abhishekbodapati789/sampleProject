@@ -11,47 +11,47 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 public class Task1 {
 
     @ValueMapValue
+    private String pathfield;
+
+    @ValueMapValue
     private String textfield;
 
     @ValueMapValue
-    private String fileupload;
-
-    @ValueMapValue
-    private String checkbox; 
-
-    @ValueMapValue
-    private String dropdown;
+    private boolean checkbox;
 
     @ChildResource
-    private List<Child> nestedFieldData;
+    private List<MultiFieldItem> multifield;
+
+    public String getPathfield() {
+        return pathfield;
+    }
 
     public String getTextfield() {
         return textfield;
     }
 
-    public String getFileupload() {
-        return fileupload;
-    }
-
-    public String isCheckbox() { 
+    public boolean isCheckbox() {
         return checkbox;
     }
 
-    public String getDropdown() {
-        return dropdown;
-    }
-
-    public List<Child> getNestedFieldData() {
-        return nestedFieldData;
+    public List<MultiFieldItem> getMultifield() {
+        return multifield;
     }
 
     @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-    public static class Child {
+    public static class MultiFieldItem {
         @ValueMapValue
-        private String richtext;
+        private String text;
 
-        public String getRichtext() {
-            return richtext;
+        @ValueMapValue
+        private String date;
+
+        public String getText() {
+            return text;
+        }
+
+        public String getDate() {
+            return date;
         }
     }
 }
