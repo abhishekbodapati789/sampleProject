@@ -24,7 +24,7 @@
                         name="./imageDropdown">
                         <datasource
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="/apps/dropdown/data"/>
+                            sling:resourceType="/apps/dropdown/data/abhishek"/>
                     </imageDropdown>
                 </items>
             </column>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
-    jcr:title="Properties"
+    jcr:title="Header Component"
     sling:resourceType="cq/gui/components/authoring/dialog">
     <content
         jcr:primaryType="nt:unstructured"
@@ -14,76 +14,44 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="granite/ui/components/coral/foundation/container">
                 <items jcr:primaryType="nt:unstructured">
+                    <pathfield
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                        fieldLabel="Path"
+                        name="./pathfield"/>
                     <textfield
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                         fieldLabel="Text"
                         name="./textfield"/>
-                    <fileupload
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                        fieldLabel="File Upload"
-                        name="./fileupload"/>
                     <checkbox
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-                        fieldLabel="Are you a student?"
+                        fieldLabel="Checkbox"
                         name="./checkbox"
-                        text="Student"/>
-                    <dropdown
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                        fieldLabel="Dropdown"
-                        name="./dropdown">
-                        <items jcr:primaryType="nt:unstructured">
-                            <item1
-                                jcr:primaryType="nt:unstructured"
-                                text="Select"
-                                value="Select"/>
-                            <item2
-                                jcr:primaryType="nt:unstructured"
-                                text="Srilanka"
-                                value="Srilanka"/>
-                            <item3
-                                jcr:primaryType="nt:unstructured"
-                                text="Pakisthan"
-                                value="Pakisthan"/>
-                            <item4
-                                jcr:primaryType="nt:unstructured"
-                                text="India"
-                                value="india"/>
-                            <item5
-                                jcr:primaryType="nt:unstructured"
-                                text="USA"
-                                value="USA"/>
-                            <item6
-                                jcr:primaryType="nt:unstructured"
-                                text="Japan"
-                                value="Japan"/>
-                            <item7
-                                jcr:primaryType="nt:unstructured"
-                                text="Other"
-                                value="other"/>
-                        </items>
-                    </dropdown>
-                    <nestedmulti
+                        text="Check"/>
+                    <multifield
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
                         composite="{Boolean}true"
-                        fieldLabel="Nested Multifield">
+                        fieldLabel="Multifield">
                         <field
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/container">
                             <items jcr:primaryType="nt:unstructured">
-                                <richtext
+                                <textfield
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                    fieldLabel="Rich Text Content"
-                                    name="./richtext"
-                                    required="{Boolean}false"/>
+                                    fieldLabel="Text"
+                                    name="./text"/>
+                                <datepicker
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                    fieldLabel="Date"
+                                    name="./date"/>
                             </items>
                         </field>
-                    </nestedmulti>
+                    </multifield>
                 </items>
             </column>
         </items>
