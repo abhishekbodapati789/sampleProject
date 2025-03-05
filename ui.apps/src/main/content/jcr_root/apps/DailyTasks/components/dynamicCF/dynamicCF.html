@@ -1,0 +1,12 @@
+<div data-sly-use.model="com.DailyTasks.core.models.DynamicCFM">
+    <h3>Content Fragment Path:</h3>
+    <p>${model.path}</p>
+
+    <h3>Content Fragment Properties:</h3>
+    <ul>
+        <!-- Iterate through the content fragment properties -->
+        <li data-sly-repeat.prop="${model.contentFragmentProperties}">
+            <strong>${prop.key}:</strong> ${prop.value}
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Feature Detection</title>
+
+    <style>
+        .image-container {
+            position: relative;
+            display: inline-block;
+            overflow: hidden; /* Prevents zoom from overflowing */
+        }
+
+        #featureImage {
+            max-width: 100%;
+            cursor: pointer;
+            display: block;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Modal inside the component */
+        .feature-modal {
+            display: none;
+            position: absolute;
+            z-index: 1000;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            min-width: 200px;
+            max-width: 300px;
+            border: 1px solid black;
+        }
+
+        .feature-modal h3 {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .feature-modal p {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            color: red;
+        }
+
+        .close-modal:hover {
+            color: darkred;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- AEM HTL Code -->
+    <div data-sly-use.bott="com.DailyTasks.core.models.ImageFeatures">
+        <sly data-sly-test="${bott.pathfield}">
+            <div class="image-container" id="imageContainer">
+                <img id="featureImage" src="${bott.pathfield @ context='uri'}" alt="Feature Image">
+                
+                <!-- Modal Box (Inside Component) -->
+                <div id="featureModal" class="feature-modal">
+                    <span class="close-modal">&times;</span>
+                    <h3 id="modalTitle">Feature Name</h3>
+                    <p id="modalDescription">Description</p>
+                </div>
+            </div>
+        </sly>
+        <sly data-sly-test="${!bott.pathfield}">
+            <p>No image selected. Please choose an image in the component properties.</p>
+        </sly>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var image = document.getElementById("featureImage");
+            var container = document.getElementById("imageContainer");
+            if (!image) return;
+
+            var modal = document.getElementById("featureModal");
+            var modalTitle = document.getElementById("modalTitle");
+            var modalDescription = document.getElementById("modalDescription");
+            var closeModal = document.querySelector(".close-modal");
+
+            var zoomed = false; // Track zoom state
+            var zoomFactor = 2; // Zoom level
+
+            // 🔹 Predefined Feature List
+            var features = [
+                { name: "Eye", x: 120, y: 80, desc: "The eye helps the dog see its surroundings." },
+                { name: "Nose", x: 150, y: 200, desc: "The dog's nose is highly sensitive and helps in detecting smells." },
+                { name: "Ear", x: 50, y: 50, desc: "The ears help the dog detect sounds from a long distance." }
+            ];
+
+            // ** Single Click: Zoom in on the clicked feature **
+            image.addEventListener("click", function (event) {
+                var rect = image.getBoundingClientRect();
+                var x = event.clientX - rect.left;
+                var y = event.clientY - rect.top;
+
+                // Apply zoom effect
+                if (!zoomed) {
+                    var offsetX = (x / rect.width) * 100;
+                    var offsetY = (y / rect.height) * 100;
+                    image.style.transformOrigin = offsetX + "% " + offsetY + "%";
+                    image.style.transform = "scale(" + zoomFactor + ")";
+                    zoomed = true;
+                } else {
+                    image.style.transform = "scale(1)";
+                    zoomed = false;
+                }
+            });
+
+            // ** Double Click: Open Modal Box (Inside Component) **
+            image.addEventListener("dblclick", function (event) {
+                var rect = image.getBoundingClientRect();
+                var x = event.clientX - rect.left;
+                var y = event.clientY - rect.top;
+
+                var closestFeature = null;
+                var minDist = Infinity;
+                features.forEach(function(feature) {
+                    var distance = Math.sqrt(Math.pow(feature.x - x, 2) + Math.pow(feature.y - y, 2));
+                    if (distance < minDist) {
+                        minDist = distance;
+                        closestFeature = feature;
+                    }
+                });
+
+                if (closestFeature && minDist < 50) { 
+                    modal.style.left = x + "px";
+                    modal.style.top = y + "px";
+                    modal.style.display = "block";
+                    modalTitle.innerText = closestFeature.name;
+                    modalDescription.innerText = closestFeature.desc;
+                } else {
+                    modal.style.left = x + "px";
+                    modal.style.top = y + "px";
+                    modal.style.display = "block";
+                    modalTitle.innerText = "Unknown Feature";
+                    modalDescription.innerText = "No specific details available for this part.";
+                }
+            });
+
+            // Close Modal
+            closeModal.addEventListener("click", function () {
+                modal.style.display = "none";
+            });
+
+            container.addEventListener("click", function (event) {
+                if (event.target !== modal && event.target !== image) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

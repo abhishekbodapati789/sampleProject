@@ -1,0 +1,14 @@
+<sly data-sly-use.parentContentFragmentModel="com.DailyTasks.core.models.ParentContentFragmentModel">
+  <div>
+      <h2>Inherited Text:</h2>
+      <p>${parentContentFragmentModel.text @ context='html'}</p>
+      
+      <h2>Content Fragment:</h2>
+      <div data-sly-test="${parentContentFragmentModel.contentFragmentPath}">
+          <div data-sly-resource="${parentContentFragmentModel.contentFragment}"></div>
+      </div>
+      <div data-sly-test="${!parentContentFragmentModel.contentFragmentPath}">
+          <p>No content fragment found.</p>
+      </div>
+  </div>
+</sly>

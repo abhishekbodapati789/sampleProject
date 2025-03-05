@@ -1,0 +1,27 @@
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.custom-table th {
+    background-color: #f4f4f4;
+    text-align: left;
+    padding: 10px;
+}
+
+.custom-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.custom-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Responsive Table */
+@media screen and (max-width: 600px) {
+    .custom-table th, .custom-table td {
+        padding: 6px;
+        font-size: 14px;
+    }
+}

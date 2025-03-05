@@ -1,0 +1,34 @@
+<sly data-sly-use.textToSpeechModel="com.DailyTasks.core.models.TextToSpeechModel"/>
+
+<div class="text-to-speech">
+    <p data-sly-test="${textToSpeechModel.text}">${textToSpeechModel.text}</p>
+    <button id="playAudio" data-audio="${textToSpeechModel.audioUrl}" disabled>Read Aloud</button>
+    <audio id="audioPlayer">
+        <source id="audioSource" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let playButton = document.getElementById("playAudio");
+        let audioPlayer = document.getElementById("audioPlayer");
+        let audioSource = document.getElementById("audioSource");
+
+        let audioUrl = playButton.getAttribute("data-audio");
+
+        if (audioUrl && audioUrl.trim() !== "") {
+            playButton.removeAttribute("disabled");
+            audioSource.src = audioUrl;
+            audioPlayer.load();
+        } else {
+            console.error("No valid audio URL provided:", audioUrl);
+        }
+
+        playButton.addEventListener("click", function () {
+            if (audioSource.src) {
+                audioPlayer.play();
+            }
+        });
+    });
+</script>
