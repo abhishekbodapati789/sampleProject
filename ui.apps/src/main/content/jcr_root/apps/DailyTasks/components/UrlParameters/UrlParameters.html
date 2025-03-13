@@ -1,0 +1,12 @@
+<div data-sly-use.bot111="com.DailyTasks.core.models.UrlParameters">
+    <p>Selected Path: ${bot111.pathfield}</p>
+
+    <sly data-sly-test="${bot111.queryParamsList.size > 0}">
+        <p>Query Parameters:</p>
+        <ul>
+            <sly data-sly-list.param="${bot111.queryParamsList}">
+                <li><strong>${param.key}</strong>: ${param.value}</li>
+            </sly>
+        </ul>
+    </sly>
+</div>
