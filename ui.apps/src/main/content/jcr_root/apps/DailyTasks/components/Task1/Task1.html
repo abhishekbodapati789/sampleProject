@@ -1,6 +1,6 @@
 <div data-sly-use.obj="com.DailyTasks.core.models.Task1">
     <p>Path: ${obj.pathfield}</p>
-    <p>Text: ${obj.textfield}</p>
+    <p>Text: ${obj.textfield @ context='html'}</p>
     <p>Checkbox: ${obj.checkbox ? 'Checked' : 'Unchecked'}</p>
     <div data-sly-list="${obj.multifield}">
         <p>Text: ${item.text}</p>

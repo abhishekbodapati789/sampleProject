@@ -19,11 +19,148 @@
                         sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
                         fieldLabel="Path"
                         name="./pathfield"/>
-                    <textfield
+                    <richtext
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        sling:resourceType="cq/gui/components/authoring/dialog/richtext"
                         fieldLabel="Text"
-                        name="./textfield"/>
+                        name="./textfield"
+                        useFixedInlineToolbar="true">
+                        <rtePlugins jcr:primaryType="nt:unstructured">
+                            <format jcr:primaryType="nt:unstructured">
+                                <features>*</features>
+                                <toolbar>
+                                    <bold jcr:primaryType="nt:unstructured"/>
+                                    <italic jcr:primaryType="nt:unstructured"/>
+                                    <underline jcr:primaryType="nt:unstructured"/>
+                                </toolbar>
+                            </format>
+                            <justify jcr:primaryType="nt:unstructured">
+                                <features>*</features>
+                                <toolbar>
+                                    <justifyLeft jcr:primaryType="nt:unstructured"/>
+                                    <justifyCenter jcr:primaryType="nt:unstructured"/>
+                                    <justifyRight jcr:primaryType="nt:unstructured"/>
+                                    <justifyFull jcr:primaryType="nt:unstructured"/>
+                                </toolbar>
+                            </justify>
+                            <lists jcr:primaryType="nt:unstructured">
+                                <features>*</features>
+                                <toolbar>
+                                    <unorderedList jcr:primaryType="nt:unstructured"/>
+                                    <orderedList jcr:primaryType="nt:unstructured"/>
+                                </toolbar>
+                            </lists>
+                            <links jcr:primaryType="nt:unstructured">
+                                <features>*</features>
+                                <toolbar>
+                                    <link jcr:primaryType="nt:unstructured"/>
+                                    <unlink jcr:primaryType="nt:unstructured"/>
+                                </toolbar>
+                            </links>
+                            <subsuperscript jcr:primaryType="nt:unstructured">
+                                <features>*</features>
+                                <toolbar>
+                                    <subscript jcr:primaryType="nt:unstructured"/>
+                                    <superscript jcr:primaryType="nt:unstructured"/>
+                                </toolbar>
+                            </subsuperscript>
+                            <table jcr:primaryType="nt:unstructured">
+                                <features>*</features>
+                                <toolbar>
+                                    <table jcr:primaryType="nt:unstructured"/>
+                                </toolbar>
+                            </table>
+                            <image jcr:primaryType="nt:unstructured">
+                                <features>*</features>
+                                <toolbar>
+                                    <image jcr:primaryType="nt:unstructured"/>
+                                </toolbar>
+                            </image>
+                            <specialchar jcr:primaryType="nt:unstructured">
+                                <features>*</features>
+                                <toolbar>
+                                    <specialchar jcr:primaryType="nt:unstructured"/>
+                                </toolbar>
+                            </specialchar>
+                            <edit jcr:primaryType="nt:unstructured">
+                                <features>*</features>
+                                <toolbar>
+                                    <cut jcr:primaryType="nt:unstructured"/>
+                                    <copy jcr:primaryType="nt:unstructured"/>
+                                    <paste jcr:primaryType="nt:unstructured"/>
+                                </toolbar>
+                            </edit>
+                            <undo jcr:primaryType="nt:unstructured">
+                                <features>*</features>
+                                <toolbar>
+                                    <undo jcr:primaryType="nt:unstructured"/>
+                                    <redo jcr:primaryType="nt:unstructured"/>
+                                </toolbar>
+                            </undo>
+                            <paraformat jcr:primaryType="nt:unstructured">
+                                <features>*</features>
+                                <toolbar>
+                                    <paraformat jcr:primaryType="nt:unstructured"/>
+                                </toolbar>
+                            </paraformat>
+                            <spellcheck jcr:primaryType="nt:unstructured">
+                                <features>*</features>
+                                <toolbar>
+                                    <spellcheck jcr:primaryType="nt:unstructured"/>
+                                </toolbar>
+                            </spellcheck>
+                            <findreplace jcr:primaryType="nt:unstructured">
+                                <features>*</features>
+                                <toolbar>
+                                    <findreplace jcr:primaryType="nt:unstructured"/>
+                                </toolbar>
+                            </findreplace>
+                            <fullscreen jcr:primaryType="nt:unstructured">
+                                <features>*</features>
+                                <toolbar>
+                                    <fullscreen jcr:primaryType="nt:unstructured"/>
+                                </toolbar>
+                            </fullscreen>
+                            <sourceedit jcr:primaryType="nt:unstructured">
+                                <features>*</features>
+                                <toolbar>
+                                    <sourceedit jcr:primaryType="nt:unstructured"/>
+                                </toolbar>
+                            </sourceedit>
+                            <controlbar jcr:primaryType="nt:unstructured">
+                                <features>*</features>
+                                <toolbar>
+                                    <controlbar jcr:primaryType="nt:unstructured"/>
+                                </toolbar>
+                            </controlbar>
+                        </rtePlugins>
+                        <uiSettings jcr:primaryType="nt:unstructured">
+                            <inline jcr:primaryType="nt:unstructured">
+                                <toolbar jcr:primaryType="nt:unstructured">
+                                    <format jcr:primaryType="nt:unstructured"/>
+                                    <bold jcr:primaryType="nt:unstructured"/>
+                                    <italic jcr:primaryType="nt:unstructured"/>
+                                    <underline jcr:primaryType="nt:unstructured"/>
+                                    <subsuperscript jcr:primaryType="nt:unstructured"/>
+                                    <justify jcr:primaryType="nt:unstructured"/>
+                                    <lists jcr:primaryType="nt:unstructured"/>
+                                    <indent jcr:primaryType="nt:unstructured"/>
+                                    <outdent jcr:primaryType="nt:unstructured"/>
+                                    <link jcr:primaryType="nt:unstructured"/>
+                                    <unlink jcr:primaryType="nt:unstructured"/>
+                                    <image jcr:primaryType="nt:unstructured"/>
+                                    <table jcr:primaryType="nt:unstructured"/>
+                                    <specialchar jcr:primaryType="nt:unstructured"/>
+                                    <sourceedit jcr:primaryType="nt:unstructured"/>
+                                    <paraformat jcr:primaryType="nt:unstructured"/>
+                                    <spellcheck jcr:primaryType="nt:unstructured"/>
+                                    <findreplace jcr:primaryType="nt:unstructured"/>
+                                    <fullscreen jcr:primaryType="nt:unstructured"/>
+                                    <controlbar jcr:primaryType="nt:unstructured"/>
+                                </toolbar>
+                            </inline>
+                        </uiSettings>
+                    </richtext>
                     <checkbox
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
