@@ -1,0 +1,14 @@
+<div class="profiles-new">
+    <h2>${properties.name}</h2>
+    <p>${properties.text}</p>
+
+    <div class="profiles-new__images">
+            <sly data-sly-test="${resource.getChild('images')}">
+                <sly data-sly-list.image="${resource.getChild('images').children}">
+                    <sly data-sly-test="${image.properties.file}">
+                        <img src="${image.properties.file @ context='uri'}" alt="${image.properties.alt @ context='attribute'}" width="20" height="20" />
+                    </sly>
+                </sly>
+            </sly>
+    </div>
+</div>
